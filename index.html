@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Cordova</title>
+<script type="text/javascript" charset="utf-8" src="cordova.js">
+</script>
+</head>
+<body onload="cargar()">
+	<a href="#" onClick="playAudio(http://audio.ibeat.org/
+		content/p1rj1s/p1rj1s_-_rockGuitar.mp3);">Reproducir
+		Audio</a>
+	<br />
+	<a href="#" onClick="stopAudio();">Deneter Audio</a>
+</body>
+</html>
+<script type="text/javascript" charset="utf-8">
+	function cargar() {
+		document.addEventListener("deviceready", onDeviceReady,
+		false);
+	}
+	function onDeviceReady() {
+		playAudio("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-
+		_rockGuitar.mp3");
+	}
+	var my_media = null;
+	function playAudio(src) {
+		my_media = new Media(src, onSuccess, onError);
+		my_media.play();
+	}
+	function onSuccess() {
+		console.log("playAudio():Audio Success");
+	}
+	function onError(error) {
+		alert('code: ' + error.code + '\n' + 'message: ' +
+		error.message + '\n');
+	}
+</script>
